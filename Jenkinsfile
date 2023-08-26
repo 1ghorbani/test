@@ -17,9 +17,9 @@ pipeline{
         stage("push"){
             steps{
                 script{
-                    withCredentials([usernamePassword(credentialsId: 'my-github', passwordVariable: 'PASS', usernameVariable: 'USER')]){
-                        echo "Trying to push to remote repository..."
-                        sh "git push origin main"
+                    withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'PASS', usernameVariable: 'USER')]){
+                        echo "Trying to create a docker image and push to remote repository..."
+                        sh "echo $PASS | docker login -u $USER --password-stdin"
                     } 
                     
                     
