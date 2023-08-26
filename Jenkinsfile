@@ -1,25 +1,39 @@
 pipeline{
+    
     agent any
-    environment{
-        name = "Reza"
-    }
+    
     stages{
-        stage("test"){
+        
+        // Creating a file to test pushing
+        
+        stage("create-file"){
             steps{
-                echo "this is test section"
+                sh 'echo "this is for testing" > test.txt'
             }
         }
         
-        stage("mypy"){
+        // pushing to Git repository 
+        
+        stage("push"){
             steps{
-                echo "python3 --version"
+                script{
+                    withCredentials([usernamePassword(credentialId: 'my-github', passwordVariable: "PASS", usernameVariable: "USER")])
+                    
+                    echo "Trying to push to remote repository..."
+                    sh "git push"
+                }
             }
+            
+        }
+    }
+    
+    post{
+        success{
+            echo "Ok, successfully pushed"
         }
         
-        stage("myinfo"){
-            steps{
-                echo "my name is ${name}"
-            }
+        failure{
+            echo "Ops, something happend wrong"
         }
     }
 }
