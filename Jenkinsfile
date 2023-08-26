@@ -19,7 +19,7 @@ pipeline{
                 script{
                     withCredentials([usernamePassword(credentialsId: 'my-github', passwordVariable: 'PASS', usernameVariable: 'USER')]){
                         echo "Trying to push to remote repository..."
-                        sh "git push"
+                        sh "git push origin main"
                     } 
                     
                     
