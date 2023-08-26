@@ -20,7 +20,9 @@ pipeline{
                     withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'PASS', usernameVariable: 'USER')]){
                         echo "Trying to create a docker image and push to remote repository..."
                         sh "docker logout"
+                        sh "docker build -t 1ghorbani/alpine:1.0 ."
                         sh "echo $PASS | docker login -u $USER --password-stdin"
+                        sh "docker push 1ghorbani/alpine:1.0"
                     } 
                     
                     
