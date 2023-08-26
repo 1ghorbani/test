@@ -8,6 +8,7 @@ pipeline{
         
         stage("create-file"){
             steps{
+                echo "This is ${BRANCH_NAME} brnach :)"
                 sh 'echo "this is for testing" > test.txt'
             }
         }
