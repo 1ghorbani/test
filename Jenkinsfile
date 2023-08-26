@@ -19,6 +19,7 @@ pipeline{
                 script{
                     withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'PASS', usernameVariable: 'USER')]){
                         echo "Trying to create a docker image and push to remote repository..."
+                        sh "docker logout"
                         sh "docker login -u $USER -p '2w^.$yMpaHfms2+'"
                     } 
                     
