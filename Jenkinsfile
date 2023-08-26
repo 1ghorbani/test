@@ -11,6 +11,14 @@ pipeline{
                 sh 'echo "this is for testing" > test.txt'
             }
         }
+
+        // Creating docker image file
+        stage("create-image"){
+            steps{
+                echo "Trying to create docker image..."
+                sh "docker build -t 1ghorbani/alpine:1.0 ."
+            }
+        }
         
         // pushing to Git repository 
         
@@ -18,14 +26,10 @@ pipeline{
             steps{
                 script{
                     withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'PASS', usernameVariable: 'USER')]){
-                        echo "Trying to create a docker image and push to remote repository..."
-                        sh "docker logout"
-                        sh "docker build -t asgharniazi/alpine:1.0 ."
+                        echo "Trying to push docker image to remote repository..."
                         sh "echo $PASS | docker login -u $USER --password-stdin"
-                        sh "docker push asgharniazi/alpine:1.0"
-                    } 
-                    
-                    
+                        sh "docker push 1ghorbani/alpine:1.0"
+                    }                  
                 }
             }
             
