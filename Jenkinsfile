@@ -17,7 +17,7 @@ pipeline{
         stage("push"){
             steps{
                 script{
-                    withCredentials([usernamePassword(credentialId: 'my-github', passwordVariable: 'PASS', usernameVariable: 'USER')]){
+                    withCredentials([usernamePassword(credentialsId: 'my-github', passwordVariable: 'PASS', usernameVariable: 'USER')]){
                         
                     } 
                     
