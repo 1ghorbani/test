@@ -17,7 +17,9 @@ pipeline{
         stage("push"){
             steps{
                 script{
-                    withCredentials([usernamePassword(credentialId: 'my-github', passwordVariable: 'PASS', usernameVariable: 'USER')])
+                    withCredentials([usernamePassword(credentialId: 'my-github', passwordVariable: 'PASS', usernameVariable: 'USER')]){
+                        
+                    } 
                     
                     echo "Trying to push to remote repository..."
                     // sh "git push"
