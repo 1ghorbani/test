@@ -1,6 +1,8 @@
 pipeline{
     agent any
-    
+    environment{
+        name = "Reza"
+    }
     stages{
         stage("test"){
             steps{
@@ -16,7 +18,7 @@ pipeline{
         
         stage("myinfo"){
             steps{
-                echo "my name is Reza"
+                echo "my name is ${name}"
             }
         }
     }
