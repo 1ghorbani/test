@@ -39,7 +39,7 @@ pipeline{
     
     post{
         success{
-            echo "Ok, successfully pushed"
+            echo "YES, successfully pushed"
         }
         
         failure{
