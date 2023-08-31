@@ -1,0 +1,14 @@
+pipeline{
+    
+    agent any
+    
+    stages{
+        
+        // Creating a file to test pushing
+        
+        stage("create-file"){
+            steps{
+               echo "This is test"
+            }
+        }
+}
