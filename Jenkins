@@ -9,7 +9,11 @@ pipeline{
         stage("create-file"){
             steps{
                withCredentials([usernamePassword(credentialsId: "github", usernameVariable: "USER", passwordVariable: "PASS")]){
-                echo "hi"
+                sh """
+                echo hi
+                echo bye
+                echo how
+                """
                }
             }
         }
