@@ -8,7 +8,9 @@ pipeline{
         
         stage("create-file"){
             steps{
-               echo "This is test from reza"
+               withCredentials([usernamePassword(credentialsId: "github", usernameVariable: "USER", passwordVariable: "PASS")]){
+                echo "hi"
+               }
             }
         }
 }
