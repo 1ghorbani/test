@@ -8,7 +8,7 @@ pipeline{
         
         stage("create-file"){
             steps{
-               echo "This is test"
+               echo "This is test from reza"
             }
         }
 }
