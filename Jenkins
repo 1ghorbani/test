@@ -12,13 +12,12 @@ pipeline{
                 sh """
                 git config --global user.name "Ali Mohammadi"
                 git config --global user.email "ali@ali.com"
-                git remote set-url origin "https://${USER}:${PASS}@gitlab.com/1ghorbani/test.git"
 
                 echo "this is test" > info.txt
                 git add .
                 git commit -m "UPDATEED FILE"
                 
-                git branch -v 
+                git checkout main
 
                 git push "https://1ghorbani:Reza@12354@github.com/1ghorbani/test.git main"
                 git status
