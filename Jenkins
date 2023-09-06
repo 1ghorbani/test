@@ -18,7 +18,7 @@ pipeline{
                 git add .
                 git commit -m "UPDATEED FILE"
                 
-                git checkout main
+                git branch -v 
 
                 git push "https://1ghorbani:Reza@12354@github.com/1ghorbani/test.git main"
                 git status
