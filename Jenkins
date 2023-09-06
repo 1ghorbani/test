@@ -20,7 +20,7 @@ pipeline{
                 
                 git branch
 
-                git push origin HEAD:main
+                git push https://${USER}:${PASS}@github.com/1ghorbani/test.git HEAD:main
                 git status
                 """
                }
