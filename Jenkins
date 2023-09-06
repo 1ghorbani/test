@@ -10,9 +10,8 @@ pipeline{
             steps{
                withCredentials([usernamePassword(credentialsId: "github", usernameVariable: "USER", passwordVariable: "PASS")]){
                 sh """
-                echo hi
-                echo bye
-                echo how
+                git remote set-url origin https://${USER}:${PASS}@github.com/1ghorbani/test
+                git status
                 """
                }
             }
