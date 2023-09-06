@@ -17,6 +17,8 @@ pipeline{
                 echo "this is test" > info.txt
                 git add .
                 git commit -m "UPDATEED FILE"
+                
+                git branch
 
                 git push origin main
                 git status
