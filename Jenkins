@@ -15,7 +15,7 @@ pipeline{
 
                 git checkout main
 
-                echo "this is test" > info.txt
+                echo "this is test l " > info.txt
                 git add .
                 git commit -m "UPDATEED FILE"
 
