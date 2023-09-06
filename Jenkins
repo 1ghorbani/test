@@ -20,7 +20,7 @@ pipeline{
                 
                 git branch
 
-                git push origin main
+                git push origin HEAD:main
                 git status
                 """
                }
