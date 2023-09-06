@@ -11,7 +11,11 @@ pipeline{
                withCredentials([usernamePassword(credentialsId: "github", usernameVariable: "USER", passwordVariable: "PASS")]){
                 sh """
                 git remote set-url origin https://${USER}:${PASS}@github.com/1ghorbani/test
-                git status
+                git add .
+                git commit -m "UPDATEED FILE"
+
+                git status 
+                git push origin main
                 """
                }
             }
