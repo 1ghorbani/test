@@ -5,14 +5,11 @@ pipeline{
     agent any
     
     stages{
-        stage("init"){
-            steps{
-                load build
-            }
-        }
+    
         // Creating a file to test pushing
         stage("create-docker"){
             steps{
+                build()
                 withCredentials([UsernamePassword(credentialsId: "dockerhub", usernameVariable: "USER", passwordVariable: "PASS")]){
                     sh '''
                     echo ${new_version}
