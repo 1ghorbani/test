@@ -10,6 +10,9 @@ pipeline{
             steps{
                withCredentials([usernamePassword(credentialsId: "gitlab", usernameVariable: "USER", passwordVariable: "PASS")]){
                 sh """
+                mkdir test
+                cd test
+                
                 git config --global user.name "Ali Mohammadi"
                 git config --global user.email "ali@ali.com"
 
@@ -19,7 +22,7 @@ pipeline{
                 git add .
                 git commit -m "UPDATEED FILE"
 
-                git push "https://${USER}:${PASS}@github.com/1ghorbani/test.git main"
+                git push "https://${USER}:${PASS}@gitlab.com/1ghorbani/test.git main"
                 git status
                 """
                }
