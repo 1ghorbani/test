@@ -8,6 +8,7 @@ pipeline{
         
         stage("create-file"){
             steps{
+               withCredentials([usernamePassword(credentialsId: "gitlab", usernameVariable: "USER", passwordVariable: "PASS")]){
                 sh """
                 rm -rf test
                 mkdir test
@@ -16,21 +17,19 @@ pipeline{
                 git config --global user.name "Ali Mohammadi"
                 git config --global user.email "ali@ali.com"
                 
-                git remote remove origin
-                git remote add origin git@github.com:1ghorani/test.git
-
                 git init
                 git branch -M main
 
-                echo "this is test" > info.txt
+                echo "this is test" > info{1..10}.txt
                 
                 git add .
                 git commit -m "UPDATEED FILE"
                 
-                git remote -v
-                git push ssh://git@github.com:1ghorani/test main
+                git pull --rebase https://${USER}:${PASS}@gitlab.com/1ghorbani/test.git main
+                git push -u https://${USER}:${PASS}@gitlab.com/1ghorbani/test.git main
                 git status
                 """
+               }
             }
         }
 }
