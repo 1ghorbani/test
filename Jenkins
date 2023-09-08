@@ -27,7 +27,7 @@ pipeline{
                 git add .
                 git commit -m "UPDATEED FILE"
                 
-                git pull git@github.com:1ghorbani/test
+
                 git push -u origin main
                 git status
                 """
