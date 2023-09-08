@@ -27,7 +27,7 @@ pipeline{
                 git add .
                 git commit -m "UPDATEED FILE"
                 
-                git pull --rebase origin main
+                git pull --rebase --set-upstream origin main
                 git push -u origin main
                 git status
                 """
