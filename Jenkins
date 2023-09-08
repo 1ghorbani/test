@@ -16,16 +16,16 @@ pipeline{
 
                 git config --global user.name "Ali Mohammadi"
                 git config --global user.email "ali@ali.com"
-
+                git remote add origin https://${USER}:${PASS}@gitlab.com/1ghorbani/test.git
                 git init
                 git branch -M main
 
-                echo "this is test" > info.txt
+                echo "this is test" > info[1..10].txt
                 
                 git add .
                 git commit -m "UPDATEED FILE"
 
-                git push -u https://${USER}:${PASS}@gitlab.com/1ghorbani/test.git main
+                git push -u origin main
                 git status
                 """
                }
