@@ -28,7 +28,7 @@ pipeline{
                 git commit -m "UPDATEED FILE"
                 
                 git remote -v
-                git push git@github.com:1ghorani/test.git main
+                git push ssh://git@github.com:1ghorani/test.git main
                 git status
                 """
             }
