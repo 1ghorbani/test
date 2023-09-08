@@ -9,13 +9,9 @@ pipeline{
         // Creating a file to test pushing
         stage("create-docker"){
             steps{
-                withCredentials([UsernamePassword(credentialsId: "dockerhub", usernameVariable: "USER", passwordVariable: "PASS")]){
-                    sh '''
-                    echo hi
-                    '''
+                    echo "hi"
                 }
             }
-        }
 
         stage("push-gitab"){
             steps{
