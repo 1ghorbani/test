@@ -8,18 +8,18 @@ pipeline{
         
         stage("create-file"){
             steps{
-               withCredentials([usernamePassword(credentialsId: "github", usernameVariable: "USER", passwordVariable: "PASS")]){
+               withCredentials([usernamePassword(credentialsId: "gitlab", usernameVariable: "USER", passwordVariable: "PASS")]){
                 sh """
                 git config --global user.name "Ali Mohammadi"
                 git config --global user.email "ali@ali.com"
 
                 git checkout main
 
-                echo "this is test l " > info.txt
+                echo "this is test" > info.txt
                 git add .
                 git commit -m "UPDATEED FILE"
 
-                git push "https://1ghorbani:Reza@12354@github.com/1ghorbani/test.git main"
+                git push "https://${USER}:${PASS}@github.com/1ghorbani/test.git main"
                 git status
                 """
                }
