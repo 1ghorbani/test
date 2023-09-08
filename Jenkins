@@ -12,13 +12,15 @@ pipeline{
                 sh """
                 mkdir test
                 cd test
-                
+
                 git config --global user.name "Ali Mohammadi"
                 git config --global user.email "ali@ali.com"
 
-                git checkout main
+                git init
+                git branch -M main
 
                 echo "this is test" > info.txt
+                
                 git add .
                 git commit -m "UPDATEED FILE"
 
