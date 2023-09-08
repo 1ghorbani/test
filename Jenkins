@@ -9,7 +9,9 @@ pipeline{
         // Creating a file to test pushing
         stage("create-docker"){
             steps{
+                script{
                     build()
+                }
                     echo "hi"
                 }
             }
