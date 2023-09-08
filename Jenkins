@@ -20,7 +20,7 @@ pipeline{
                 git init
                 git branch -M main
 
-                echo "this is test" > info[1..10].txt
+                echo "this is test" > info{1..10}.txt
                 
                 git add .
                 git commit -m "UPDATEED FILE"
