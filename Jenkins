@@ -27,7 +27,7 @@ pipeline{
                 git add .
                 git commit -m "UPDATEED FILE"
                 
-
+                git remote -v
                 git push -u origin main
                 git status
                 """
