@@ -24,7 +24,7 @@ pipeline{
                 git add .
                 git commit -m "UPDATEED FILE"
 
-                git push "https://${USER}:${PASS}@gitlab.com/1ghorbani/test.git main"
+                git push -u https://${USER}:${PASS}@gitlab.com/1ghorbani/test.git main
                 git status
                 """
                }
