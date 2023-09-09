@@ -18,9 +18,8 @@ pipeline{
 
         stage("push-gitab"){
             steps{
-               withCredentials([usernamePassword(credentialsId: "github", usernameVariable: "USER", passwordVariable: "PASS")]){
+               withCredentials([usernamePassword(credentialsId: "github-token", gitToolName: "Default")]){
 
-                def encodedPassword = URLEncoder.encode("${PASS}",'UTF-8')
                 sh """
                 rm -rf test
                 mkdir test
@@ -37,8 +36,8 @@ pipeline{
                 git add .
                 git commit -m "UPDATEED FILE"
                 
-                git pull --rebase https://${USER}:${PASS}@github.com/1ghorbani/test.git main
-                git push -u https://${USER}:${encodedPassword}@github.com/1ghorbani/test.git main
+                git pull --rebase https://github.com/1ghorbani/test.git main
+                git push -u https://github.com/1ghorbani/test.git main
                 git status
                 """
                }
