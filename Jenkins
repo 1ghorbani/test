@@ -13,7 +13,7 @@ pipeline{
 
         stage("push-gitab"){
             steps{
-               withCredentials([usernamePassword(credentialsId: "github-token")]){
+               withCredentials([usernamePassword(credentialsId: "gitlab-token", usernameVariable: "USER", passwordVariable: "PASS")]){
 
                 sh """
                 rm -rf test
@@ -31,8 +31,8 @@ pipeline{
                 git add .
                 git commit -m "UPDATEED FILE"
                 
-                git pull --rebase https://github.com/1ghorbani/test.git main
-                git push -u https://github.com/1ghorbani/test.git main
+                git pull --rebase https://${USER}:${PASS}@gitlab.com/1ghorbani/test.git main
+                git push -u https://${USER}:${PASS}@gitlab.com/1ghorbani/test.git main
                 git status
                 """
                }
