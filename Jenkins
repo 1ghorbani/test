@@ -13,7 +13,7 @@ pipeline{
 
         stage("push-gitab"){
             steps{
-               withCredentials([usernamePassword(credentialsId: "github-token", gitToolName: "Default")]){
+               withCredentials([usernamePassword(credentialsId: "github-token")]){
 
                 sh """
                 rm -rf test
