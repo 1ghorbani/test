@@ -20,7 +20,7 @@ pipeline{
             steps{
                withCredentials([usernamePassword(credentialsId: "github", usernameVariable: "USER", passwordVariable: "PASS")]){
 
-                def encodedPassword = URLEncoder.encode("$PASS",'UTF-8')
+                def encodedPassword = URLEncoder.encode("${PASS}",'UTF-8')
                 sh """
                 rm -rf test
                 mkdir test
