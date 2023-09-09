@@ -7,10 +7,16 @@ pipeline{
         // Creating a file to test pushing
         stage("create-docker"){
             steps{
-                    echo "hi"
+                    withCredentials([usernamePassword(credentialsId: "dockerhub", usernameVariable: "USER", passwordVariable: "PASS")]){
+                        sh '''
+                            docker build -t myimage:v2.1${BUILD_NUMBER} .
+                            echo "${PASS}" | docker login -u ${USER} --password-stdin 
+                            docker push myimage:v2.1.${BUILD_NUMBER}
+                        '''
+                    }
                 }
             }
-
+    
         stage("push-gitab"){
             steps{
                withCredentials([usernamePassword(credentialsId: "gitlab", usernameVariable: "USER", passwordVariable: "PASS")]){
