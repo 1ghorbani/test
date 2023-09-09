@@ -10,7 +10,7 @@ pipeline{
         stage("create-docker"){
             steps{
                 script{
-                    build()
+                    // build()
                 }
                     echo "hi"
                 }
