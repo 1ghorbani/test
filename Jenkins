@@ -9,7 +9,7 @@ pipeline{
             steps{
                     withCredentials([usernamePassword(credentialsId: "dockerhub", usernameVariable: "USER", passwordVariable: "PASS")]){
                         sh '''
-                            docker build -t myimage:v2.1${BUILD_NUMBER} .
+                            docker build -t myimage:v2.1.${BUILD_NUMBER} .
                             echo "${PASS}" | docker login -u ${USER} --password-stdin 
                             docker push myimage:v2.1.${BUILD_NUMBER}
                         '''
